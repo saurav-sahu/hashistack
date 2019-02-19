@@ -3,9 +3,12 @@ NUM_OF_NODES = 2
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
+  if Vagrant.has_plugin?("Vagrant-cachier")
+    config.cache.scope = :box
+  end
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
-    v.cpus = 2
+    v.memory = 2048
+    v.cpus = 3
   end
   config.vm.provision :shell, inline: "echo 'Hello World!'"
   config.vm.provision "basic", type: "shell", path: "./scripts/basic.sh"
