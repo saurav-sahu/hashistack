@@ -29,6 +29,3 @@ echo "Installing http-echo"
 curl -sSL https://github.com/hashicorp/http-echo/releases/download/v0.2.3/http-echo_0.2.3_linux_amd64.zip -o http-echo.zip
 unzip http-echo.zip
 sudo mv http-echo /usr/local/bin
-
-echo "export NOMAD_ADDR=http://192.168.1.100:4646" > /etc/profile.d/nomad-cli.sh
-echo "export CONSUL_HTTP_ADDR=http://192.168.1.200:8500" > /etc/profile.d/consul-cli.sh
